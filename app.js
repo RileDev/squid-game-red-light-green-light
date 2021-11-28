@@ -80,23 +80,24 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+
+let diffValue = "";
 function changeDifficulty(el){
     let diff = el.getAttribute("data-diff");
     console.log(diff);
 
     if(diff === "very-easy"){
-        terrain.style.width = "400px";
-        setCookie("diff", "400px", 20);
+        diffValue = "400px";
     }else if(diff === "easy"){
-        terrain.style.width = "600px";
-        setCookie("diff", "600px", 20);
+        diffValue = "600px";
     }else if(diff === "normal"){
-        terrain.style.width = "800px";
-        setCookie("diff", "800px", 20);
+        diffValue = "800px";
     }else if(diff === "hard"){
-        terrain.style.width = "1200px";
-        setCookie("diff", "1200px", 20);
+        diffValue = "1200px";
     }
+    
+    terrain.style.width = diffValue;
+    setCookie("diff", diffValue, 20);
 }
 
 function setCookie(cname, cvalue, exdays) {
